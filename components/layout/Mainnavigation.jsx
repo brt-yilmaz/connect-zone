@@ -1,9 +1,10 @@
 import Link from "next/link";
+import styles from "./MainNavigation.module.css";
 
 function MainNavigation() {
   return (
-    <header>
-      <div>Connect-Zone</div>
+    <header className={styles.header}>
+      <div className={styles.logo}>Connect Zone</div>
       <nav>
         <ul>
           <li>
