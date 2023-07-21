@@ -1,5 +1,5 @@
 import ConnectZone from "./ConnectZone";
-import classes from "./Connection.module.css";
+import classes from "./ConnectZoneList.module.css";
 
 function ConnectZoneList(props) {
   return (
