@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Card from "../ui/Card";
-import styles from "./connectZone.module.css";
+import styles from "./ConnectZone.module.css";
 
-function MeetupItem(props) {
+function ConnectZone(props) {
   return (
     <li className={styles.item}>
       <Card>
@@ -21,4 +21,4 @@ function MeetupItem(props) {
   );
 }
 
-export default MeetupItem;
+export default ConnectZone;
