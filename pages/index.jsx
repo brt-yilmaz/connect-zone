@@ -19,8 +19,32 @@ const DUMMY_ZONES = [
   },
 ];
 
-function HomePage() {
-  return <ConnectZoneList connectZones={DUMMY_ZONES} />;
+function HomePage(props) {
+  return <ConnectZoneList connectZones={props.zones} />;
 }
+
+export async function getStaticProps() {
+  // fetch data from Api
+  return {
+    props: {
+      zones: DUMMY_ZONES,
+    },
+    revalidate: 10, // to regenerate page to prevent using ex-data. seconds
+  };
+}
+
+/* to send updated data for every request
+export async function getServerSideProps(context) {
+  const req = context.req;
+  const res = context.res;
+
+  // fetch from an Api
+  return {
+    props: {
+      zones: DUMMY_ZONES,
+    },
+  };
+}
+*/
 
 export default HomePage;
