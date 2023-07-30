@@ -35,7 +35,7 @@ export async function getStaticProps() {
         id: zone._id.toString(),
       })),
     },
-    revalidate: 10, // to regenerate page to prevent using ex-data. seconds
+    revalidate: 1, // to regenerate page to prevent using ex-data. seconds
   };
 }
 
