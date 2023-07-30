@@ -1,4 +1,5 @@
 import NewConnectZoneForm from "@/components/connections/NewConnectZoneForm";
+import Head from "next/head";
 import { useRouter } from "next/router";
 
 function NewMeetupPage() {
@@ -18,7 +19,18 @@ function NewMeetupPage() {
     router.push("/");
   }
 
-  return <NewConnectZoneForm onAddZone={handleAddZone} />;
+  return (
+    <>
+      <Head>
+        <title>Add a new connect zone</title>
+        <meta
+          name={"description"}
+          content={"Add new connect zone and share with your friends"}
+        />
+      </Head>
+      <NewConnectZoneForm onAddZone={handleAddZone} />;
+    </>
+  );
 }
 
 export default NewMeetupPage;

@@ -1,9 +1,21 @@
 import { MongoClient } from "mongodb";
 
 import ConnectZoneList from "@/components/connections/ConnectZoneList";
+import Head from "next/head";
 
 function HomePage(props) {
-  return <ConnectZoneList connectZones={props.zones} />;
+  return (
+    <>
+      <Head>
+        <title>Connect Zones</title>
+        <meta
+          name={"description"}
+          content={"This project is designed to practice the basics of nextjs."}
+        />
+      </Head>
+      <ConnectZoneList connectZones={props.zones} />;
+    </>
+  );
 }
 
 export async function getStaticProps() {

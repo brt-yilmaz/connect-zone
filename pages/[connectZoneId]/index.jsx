@@ -48,7 +48,6 @@ export async function getStaticProps(context) {
   const selectedZone = await zonesCollection.findOne({
     _id: new ObjectId(zoneId),
   });
-  console.log(selectedZone);
   client.close();
 
   return {
