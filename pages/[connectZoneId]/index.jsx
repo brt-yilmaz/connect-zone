@@ -1,24 +1,32 @@
 import { MongoClient, ObjectId } from "mongodb";
 import ConnectZoneDetails from "@/components/connections/ConnectZoneDetails";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 function ConnectZoneId(props) {
   const router = useRouter();
 
   return (
-    <ConnectZoneDetails
-      img={props.connectZoneData.image}
-      title={props.connectZoneData.title}
-      address={props.connectZoneData.address}
-      description={props.connectZoneData.description}
-    />
+    <>
+      <Head>
+        <title>{props.connectZoneData.title}</title>
+        <meta
+          name={"description"}
+          content={props.connectZoneData.description}
+        />
+      </Head>
+      <ConnectZoneDetails
+        img={props.connectZoneData.image}
+        title={props.connectZoneData.title}
+        address={props.connectZoneData.address}
+        description={props.connectZoneData.description}
+      />
+    </>
   );
 }
 
 export async function getStaticPaths() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://beratyilmaz:VNoimoaNs9gHOZJY@cluster0.edkqulq.mongodb.net/?retryWrites=true&w=majority"
-  );
+  const client = await MongoClient.connect(process.env.DB_CONNECT);
   const db = client.db();
   const zonesCollection = db.collection("new-zones");
   const zonesIdArray = await zonesCollection
@@ -40,9 +48,7 @@ export async function getStaticProps(context) {
   // fetch data for a single zone
   const zoneId = context.params.connectZoneId;
 
-  const client = await MongoClient.connect(
-    "mongodb+srv://beratyilmaz:VNoimoaNs9gHOZJY@cluster0.edkqulq.mongodb.net/?retryWrites=true&w=majority"
-  );
+  const client = await MongoClient.connect(process.env.DB_CONNECT);
   const db = client.db();
   const zonesCollection = db.collection("new-zones");
   const selectedZone = await zonesCollection.findOne({

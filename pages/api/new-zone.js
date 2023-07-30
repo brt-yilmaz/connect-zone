@@ -4,9 +4,7 @@ async function handler(req, res) {
   if (req.method === "POST") {
     const data = req.body;
 
-    const client = await MongoClient.connect(
-      "mongodb+srv://beratyilmaz:VNoimoaNs9gHOZJY@cluster0.edkqulq.mongodb.net/?retryWrites=true&w=majority"
-    );
+    const client = await MongoClient.connect(process.env.DB_CONNECT);
     const db = client.db();
     const zonesCollection = db.collection("new-zones");
     const result = await zonesCollection.insertOne(data);
