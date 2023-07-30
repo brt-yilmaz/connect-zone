@@ -26,7 +26,8 @@ function ConnectZoneId(props) {
 }
 
 export async function getStaticPaths() {
-  const client = await MongoClient.connect(process.env.DB_CONNECT);
+  const dbConnect = process.env.DB_CONNECT;
+  const client = await MongoClient.connect(dbConnect);
   const db = client.db();
   const zonesCollection = db.collection("new-zones");
   const zonesIdArray = await zonesCollection
@@ -48,7 +49,8 @@ export async function getStaticProps(context) {
   // fetch data for a single zone
   const zoneId = context.params.connectZoneId;
 
-  const client = await MongoClient.connect(process.env.DB_CONNECT);
+  const dbConnect = process.env.DB_CONNECT;
+  const client = await MongoClient.connect(dbConnect);
   const db = client.db();
   const zonesCollection = db.collection("new-zones");
   const selectedZone = await zonesCollection.findOne({

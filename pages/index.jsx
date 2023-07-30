@@ -19,7 +19,8 @@ function HomePage(props) {
 }
 
 export async function getStaticProps() {
-  const client = await MongoClient.connect(process.env.DB_CONNECT);
+  const dbConnect = process.env.DB_CONNECT;
+  const client = await MongoClient.connect(dbConnect);
   const db = client.db();
   const zonesCollection = db.collection("new-zones");
   const zonesArray = await zonesCollection.find().toArray();
