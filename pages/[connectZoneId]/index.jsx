@@ -36,7 +36,7 @@ export async function getStaticPaths() {
     .toArray();
   client.close();
   return {
-    fallback: blocking,
+    fallback: "blocking",
     paths: zonesIdArray.map((zone) => ({
       params: {
         connectZoneId: zone._id.toString(),
