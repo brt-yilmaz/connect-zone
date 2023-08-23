@@ -7,7 +7,7 @@ function MainNavigation() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <Image src={logo} alt={"logo"} />
+        <Image src={logo} alt={"logo"} width={"100%"} />
       </div>
       <nav>
         <ul>
