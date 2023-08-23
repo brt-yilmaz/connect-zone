@@ -1,11 +1,12 @@
 import Link from "next/link";
 import styles from "./MainNavigation.module.css";
+import logo from "../../public/connectLogo.svg";
 
 function MainNavigation() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img src="../../public/connectLogo.svg" alt="Logo" />
+        <img src={logo} alt="Logo" />
       </div>
       <nav>
         <ul>
