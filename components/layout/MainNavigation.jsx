@@ -5,7 +5,7 @@ function MainNavigation() {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <img src="../../public/connectLogo.svg" alt="Vercel Logo" />
+        <img src="../../public/connectLogo.svg" alt="Logo" />
       </div>
       <nav>
         <ul>
