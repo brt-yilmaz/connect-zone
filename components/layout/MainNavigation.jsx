@@ -4,14 +4,16 @@ import styles from "./MainNavigation.module.css";
 function MainNavigation() {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>Connect Zone</div>
+      <div className={styles.logo}>
+        <img src="../../public/connectLogo.svg" alt="Vercel Logo" />
+      </div>
       <nav>
         <ul>
           <li>
-            <Link href="/">All Meetups</Link>
+            <Link href="/">All Zones</Link>
           </li>
           <li>
-            <Link href="/new-connectZone">Add New Meetup</Link>
+            <Link href="/new-connectZone">Add New Zone</Link>
           </li>
         </ul>
       </nav>
